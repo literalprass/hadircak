@@ -39,7 +39,7 @@
             <th scope="col">ACTION</th>
 
           </tr>
-        </thead>  
+        </thead>
         <tbody class="table-secondary">
           @foreach($taek as $p)
           <tr>
@@ -49,17 +49,16 @@
             <td>{{ $p->ket }}</td>
             <td>
               <button class="btn btn-dark aksi">
-                <a href="/edit" class="nostyle">Edit</a>
+                <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
               </button> 
               <button class="btn btn-danger aksi">
-                <a href="/delete" class="nostyle">Delete</a>
+                <a href="/delete/{{ $p->id }}" class="nostyle">Delete</a>
               </button>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
-    </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Cretcon;
+use App\Http\Controllers\edusKon;
 use App\Http\Controllers\upusKon;
 use App\Http\Controllers\Liatbg;
 use Illuminate\Support\Facades\Route;
@@ -17,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Liatbg::class, 'index'])->name('/');
-Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('/post');
-Route::get('/create', [Cretcon::class, 'index'])->name('/create');
+Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
+Route::get('/create', [Cretcon::class, 'index'])->name('create');
+Route::get('/edit/{id}', [edusKon::class, 'index'])->name('edit');
