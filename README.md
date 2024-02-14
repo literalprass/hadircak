@@ -9,7 +9,7 @@
 
 ## About Hadircak!
 
-Hadircak, a sole project made my very ownself, with some help from my girlfriend (she's a way more better when it comes to programming and web developing) I owe her a countless thanks, but this project's environtment, concept and analistyc were solely my works.
+Hadircak, a sole project made by my very ownself, with some help from my girlfriend (she's a way more better when it comes to programming and web developing) I do owe her countless thanks, besides it, this project's environtment, concept and analistyc were solely my works.
 
 you can learn and knows me more, from these :
 
