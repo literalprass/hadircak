@@ -1,0 +1,47 @@
+.navteng {
+    margin-top: 20px;
+    margin-left: 82px;
+    margin-bottom: 20px;
+}
+
+.mid {
+    text-align: center;
+    /* margin: 40px 0 0 0; */
+}
+
+.kicik {
+    font-size: 12px;
+}
+
+.contol {
+    padding: 20px;
+    margin-left: 12px;
+    
+}
+
+.cik {
+    padding-top: 30px;
+    margin-left: 32px;
+    text-align: start;
+    font-size: 18px;
+}
+
+.bung {
+    text-align: center;
+    width: 36% !important;
+}
+
+.csbt1{
+    font-size: 12px !important;
+    margin-left: 5px;
+}
+
+.nostyle {
+    text-decoration: none;
+    color: white;
+}
+
+.aksi {
+    font-size: 10px !important;
+    height: 28px !important;
+}
