@@ -18,7 +18,7 @@ You can learn and knows me more, from these :
 - [Behance](https://behance.net/splitsplit1).
 - [Carrd](https://pras.carrd.co/).
 
-Checkout my incredible girlfriend !
+Checkout my incredible girlfriend!
 
 - [GitHub](https://github.com/sukinnamz).
 
