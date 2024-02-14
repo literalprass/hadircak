@@ -23,7 +23,7 @@
         <div class="input-group mb-4">
             <label class="input-group-text" for="inputGroupSelect01">Departement</label>
             <select class="form-select" id="inputGroupSelect01" name="v2">
-              <option selected>Choose...</option>
+              <option selected>Pilih...</option>
               <option value="1001" >Illlustrator</option>
               <option value="1002">Developer</option>
               <option value="1003">Human resource</option>
@@ -32,7 +32,7 @@
         <div class="input-group mb-4">
             <label class="input-group-text" for="inputGroupSelect01">Shift</label>
             <select class="form-select" id="inputGroupSelect01" name="v3">
-              <option selected>Choose...</option>
+              <option selected>Pilih...</option>
               <option value="1">Pagi</option>
               <option value="2">Siang</option>
               <option value="3">Malam</option>
@@ -41,7 +41,7 @@
         <div class="input-group mb-4">
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
             <select class="form-select" id="inputGroupSelect01" name="v4">
-              <option selected>Choose...</option>
+              <option selected>Pilih...</option>
               <option value="1">Admin</option>
               <option value="2">Mentor</option>
               <option value="4">Karyawan</option>
