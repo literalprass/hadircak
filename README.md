@@ -28,8 +28,10 @@ Feel free to use my repository for your reference, homework, etc.
 
 There are some Software(s) you need to install to :
 
+- PHP ver 8 and above
 - PHP composer 2
-- MySql (I recommend using XAMPP cause it has apache too)
+- MySql
+- Apache
 
 ## Learning Laravel
 
