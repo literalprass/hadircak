@@ -11,12 +11,16 @@
 
 Hadircak, a sole project made by my very ownself, with some help from my girlfriend (she's a way more better when it comes to programming and web developing) I do owe her countless thanks, besides it, this project's environtment, concept and analistyc were solely my works.
 
-you can learn and knows me more, from these :
+You can learn and knows me more, from these :
 
 - [Twitter](https://twitter.com/prakoso_675).
 - [Instagram](https://Instagram.com/le.arpeggi).
 - [Behance](https://behance.net/splitsplit1).
 - [Carrd](https://pras.carrd.co/).
+
+Checkout my incredible girlfriend !
+
+- [GitHub](https://github.com/sukinnamz).
 
 A little more looks about hadircak!
 
