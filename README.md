@@ -22,6 +22,15 @@ A little more looks about hadircak!
 
 Im using Laravel as it's main framewrok developing, i had so much other choices but Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Running This Project
+
+Feel free to use my repository for your reference, homework, etc.
+
+There are some Software(s) you need to install to :
+
+- PHP composer 2
+- MySql (I recommend using XAMPP cause it has apache too)
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
