@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,10 +16,9 @@
             <a href="{{ url('/') }}" class="nostyle">Back</a>
         </button>
 
-        <input type="input" class="form-control" placeholder="{{ $taek->id }}">
-        <input type="input" class="form-control" placeholder="nama">
-        <input type="input" class="form-control" placeholder="dept">
-        <input type="input" class="form-control" placeholder="shift">
+        <input type="input" class="form-control" value="{{ $taek->nama }}">
+        <input type="input" class="form-control" value="{{ $taek->nama_dept }}">
+        <input type="input" class="form-control" value="{{ $taek->ket }}">
 
 
     </div>
