@@ -16,11 +16,27 @@
             <a href="{{ url('/') }}" class="nostyle">Back</a>
         </button>
 
-        <input type="input" class="form-control" value="{{ $taek->nama }}">
-        <input type="input" class="form-control" value="{{ $taek->nama_dept }}">
-        <input type="input" class="form-control" value="{{ $taek->ket }}">
-
-
+        <div class="mb-4">
+          <input type="input" class="form-control" name="v1" value="{{$taek->nama}}">
+      </div>
+      <div class="input-group mb-4">
+          <label class="input-group-text" for="inputGroupSelect01">Departement</label>
+          <select class="form-select" id="inputGroupSelect01" name="v2">
+            <option selected>{{$taek->detil_dept}}</option>
+            <option value="1001" >Illlustrator</option>
+            <option value="1002">Developer</option>
+            <option value="1003">Human resource</option>
+          </select>
+      </div>
+      <div class="input-group mb-4">
+          <label class="input-group-text" for="inputGroupSelect01">Shift</label>
+          <select class="form-select" id="inputGroupSelect01" name="v3">
+            <option selected>{{$taek->ket}}</option>
+            <option value="1">Pagi</option>
+            <option value="2">Siang</option>
+            <option value="3">Malam</option>
+          </select>
+      </div>
     </div>
 
 
