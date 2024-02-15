@@ -14,7 +14,7 @@
             <a href="{{ url('/') }}" class="nostyle">Back</a>
         </button>
 
-        <input type="input" class="form-control" placeholder="{{ $taek->id }}}">
+        <input type="input" class="form-control" placeholder="{{ $taek->id }}">
         <input type="input" class="form-control" placeholder="nama">
         <input type="input" class="form-control" placeholder="dept">
         <input type="input" class="form-control" placeholder="shift">

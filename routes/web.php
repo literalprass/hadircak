@@ -20,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Liatbg::class, 'index'])->name('/');
 Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
 Route::get('/create', [Cretcon::class, 'index'])->name('create');
-Route::get('/edit/{id}', [edusKon::class, 'index', 'see'])->name('edit');
+Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
