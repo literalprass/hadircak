@@ -40,6 +40,8 @@ class edusKon extends Controller
 
         $shit->save();
 
+        session()->flash('suksex', 'Data telah berhasil diedit!');
+
         return redirect()->route('/');
 
     }
