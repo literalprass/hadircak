@@ -23,8 +23,25 @@ class edusKon extends Controller
         return view('edus', compact('taek'));
     }
     
-    public function edus(){
-        
+    public function edus(Request $request, $id)
+    {
+        $shit = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
+        ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
+        ->select('pegaw.*', 'dept.*', 'shift.*')
+        ->find($id);
+
+        if (!$shit) {
+            return abort(404);
+        }
+
+        $shit->nama = $request->input('nama');
+        $shit->detil_dept = $request->input('detil_dept');
+        $shit->ket = $request->input('detil_dept');
+
+        $shit->save();
+
+        return redirect()->route('/');
+
     }
 
 }
