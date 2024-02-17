@@ -22,6 +22,10 @@ class edusKon extends Controller
 
         return view('edus', compact('taek'));
     }
+    
+    public function edus(){
+        
+    }
 
 }
 

@@ -16,6 +16,8 @@
             <a href="{{ url('/') }}" class="nostyle">Back</a>
         </button>
 
+
+      
         <div class="mb-4">
           <input type="input" class="form-control" name="v1" value="{{$taek->nama}}">
       </div>
@@ -37,6 +39,10 @@
             <option value="3">Malam</option>
           </select>
       </div>
+
+      <input type="reset" value="Cancel" class="btn btn-danger">
+      <input type="submit" value="Update" class="btn btn-primary">
+
     </div>
 
 
