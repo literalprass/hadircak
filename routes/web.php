@@ -4,6 +4,7 @@ use App\Http\Controllers\Cretcon;
 use App\Http\Controllers\edusKon;
 use App\Http\Controllers\upusKon;
 use App\Http\Controllers\Liatbg;
+use App\Http\Controllers\delKon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,5 @@ Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
 Route::get('/create', [Cretcon::class, 'index'])->name('create');
 Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
 Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
+Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
 

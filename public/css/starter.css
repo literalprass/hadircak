@@ -44,4 +44,6 @@
 .aksi {
     font-size: 10px !important;
     height: 28px !important;
+    float: inline-start;
+    margin-left: 4px;
 }

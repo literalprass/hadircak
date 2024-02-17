@@ -51,9 +51,15 @@
               <button class="btn btn-dark aksi">
                 <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
               </button> 
-              <button class="btn btn-danger aksi">
-                <a href="/delete/{{ $p->id }}" class="nostyle">Delete</a>
-              </button>
+
+              <form method="POST" action="{{ route('delete', ['id' => $p->id]) }}" onsubmit="return confirm('Apakah anda yakin untuk menghapus Karyawan atas nama {{$p->nama}}?')">
+              @csrf
+              @method('DELETE')
+
+              <input type="submit" value="Delete" class="btn btn-danger aksi">
+
+              </form>
+
             </td>
           </tr>
           @endforeach
