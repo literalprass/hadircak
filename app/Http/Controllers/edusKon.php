@@ -34,9 +34,9 @@ class edusKon extends Controller
             return abort(404);
         }
 
-        $shit->nama = $request->input('nama');
-        $shit->detil_dept = $request->input('detil_dept');
-        $shit->ket = $request->input('detil_dept');
+        $shit->nama = $request->input('v1');
+        $shit->DEPT_ID = $request->input('v2');
+        $shit->SHIFT_ID = $request->input('v3');
 
         $shit->save();
 

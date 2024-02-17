@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pegaw extends Model
 {
+    public $timestamps = false;
     protected $table = 'pegaw';
 
     public function dept()

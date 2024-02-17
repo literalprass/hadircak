@@ -17,14 +17,17 @@
         </button>
 
 
-      
+  <form method="POST" action="{{ route('up', ['id' => $taek->id]) }}">
+          @csrf
+          @method('PATCH')
+
         <div class="mb-4">
           <input type="input" class="form-control" name="v1" value="{{$taek->nama}}">
       </div>
       <div class="input-group mb-4">
           <label class="input-group-text" for="inputGroupSelect01">Departement</label>
           <select class="form-select" id="inputGroupSelect01" name="v2">
-            <option selected>{{$taek->detil_dept}}</option>
+            <option selected value="{{$taek->DEPT_ID}}">{{$taek->detil_dept}}</option>
             <option value="1001" >Illlustrator</option>
             <option value="1002">Developer</option>
             <option value="1003">Human resource</option>
@@ -33,7 +36,7 @@
       <div class="input-group mb-4">
           <label class="input-group-text" for="inputGroupSelect01">Shift</label>
           <select class="form-select" id="inputGroupSelect01" name="v3">
-            <option selected>{{$taek->ket}}</option>
+            <option selected value="{{$taek->SHIFT_ID}}">{{$taek->ket}}</option>
             <option value="1">Pagi</option>
             <option value="2">Siang</option>
             <option value="3">Malam</option>
@@ -44,8 +47,7 @@
       <input type="submit" value="Update" class="btn btn-primary">
 
     </div>
-
-
+  </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
