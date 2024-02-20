@@ -18,4 +18,9 @@ class Pegaw extends Model
     {
         return $this->hasMany(Shift::class);
     }
+
+    public function tkt() 
+    {
+        return $this->hasMany(Tkt::class);
+    }
 }

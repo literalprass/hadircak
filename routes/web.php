@@ -24,8 +24,3 @@ Route::get('/create', [Cretcon::class, 'index'])->name('create');
 Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
 Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
 Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
