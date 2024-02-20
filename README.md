@@ -9,7 +9,7 @@
 
 ## IMPORTANT!
 
-You're currently on backup table which created on 2024-02-20, this branch currently backuping whole project + CRUD as well as any other feature created on 2020-02=20
+You're currently on pending branch where all of update(s) will reviewed first here
 
 ## About Hadircak!
 
