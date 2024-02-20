@@ -7,6 +7,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## IMPORTANT!
+
+You're currently on backup table which created on 2024-02-20, this branch currently backuping whole project + CRUD
+
 ## About Hadircak!
 
 Hadircak, a sole project made by my very ownself, with some help from my girlfriend (she's a way more better when it comes to programming and web developing) I do owe her countless thanks, besides it, this project's environtment, concept and analistyc were solely my works.
