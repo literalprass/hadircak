@@ -5,6 +5,7 @@ use App\Http\Controllers\edusKon;
 use App\Http\Controllers\upusKon;
 use App\Http\Controllers\Liatbg;
 use App\Http\Controllers\delKon;
+use App\Http\Controllers\Kntl\konCol;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// get all data in homepage
 Route::get('/', [Liatbg::class, 'index'])->name('/');
-Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
-Route::get('/create', [Cretcon::class, 'index'])->name('create');
-Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
-Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
-Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
+
+// Basic CRUD user
+    Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
+    Route::get('/create', [Cretcon::class, 'index'])->name('create');
+
+        // kolom edit, delete
+        Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
+        Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
+        Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
+
+
+Route::get('/login', [konCol::class, 'index'])->name('formlog');
+
+
