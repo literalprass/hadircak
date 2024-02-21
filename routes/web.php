@@ -1,11 +1,19 @@
 <?php
 
-use App\Http\Controllers\Cretcon;
-use App\Http\Controllers\edusKon;
-use App\Http\Controllers\upusKon;
+// view
 use App\Http\Controllers\Liatbg;
-use App\Http\Controllers\delKon;
+use App\Http\Controllers\Cretcon;
+
+    // Basic CRUD
+    use App\Http\Controllers\edusKon;
+    use App\Http\Controllers\upusKon;
+    use App\Http\Controllers\delKon;
+
+// Login and Auth
 use App\Http\Controllers\Kntl\konCol;
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +40,7 @@ Route::get('/', [Liatbg::class, 'index'])->name('/');
         Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
         Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
 
-
+// Login and Auth
 Route::get('/login', [konCol::class, 'index'])->name('formlog');
 
 
