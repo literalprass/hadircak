@@ -49,7 +49,7 @@ class konCol extends Controller
         if ($crit) {
             return view('debugview', compact('cok'));
         } else {
-            return view('logfun/litLog', compact('mas'));
+            return view('logfun/litLog');
             session()->flash('nguawur', 'Silahkan login terlebih dahulu!');
         }
         
