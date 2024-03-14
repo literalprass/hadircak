@@ -8,6 +8,10 @@ class Cretcon extends Controller
 {
     public function index()
     {
+        if (!session('usid')) {
+            abort(404);
+        }
+        
         return view('upus');
     }
 }

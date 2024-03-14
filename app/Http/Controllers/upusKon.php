@@ -10,6 +10,10 @@ class upusKon extends Controller
 {
     public function index()
     {
+        if (!session('usid')) {
+            abort(404);
+        }
+        
         return view('post');
     }
 
@@ -26,6 +30,6 @@ class upusKon extends Controller
 
         session()->flash('suksex', 'Data berhasil ditambahkan!');
 
-        return redirect()->route('/');
+        return redirect()->route('dash');
     }
 }

@@ -34,7 +34,8 @@ class konCol extends Controller
         // dd($mas);
 
         if (!$mas){
-            abort(404);
+            return redirect()->back();
+            session()->flash('anjim', 'User tidak valid/tidak terdaftar!');
         }
         
         $gaskan = $req->input('uy') == $mas->id && $req->input('ps') == $mas->pass;
@@ -43,7 +44,8 @@ class konCol extends Controller
             $mas->stlog = 1;
             $mas->save();
         } else{
-            abort(404);
+            return redirect()->back();
+            session()->flash('ahak', 'Password tidak sesuai!');
         }
 
         $crit = $mas->stlog == 1;
