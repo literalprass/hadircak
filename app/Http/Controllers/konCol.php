@@ -22,25 +22,32 @@ class konCol extends Controller
         return view('logfun/litLog', compact('mas'));
     }
 
-    public function masuk(Request $req, $id)
+    public function masuk(Request $req)
     {
+        $id = $req->input('uy');
+
         $mas = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
         ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
         ->select('pegaw.*', 'dept.*', 'shift.*')
         ->find($id);
-        
-        $gaskan = $req->input('uy') == $mas->get('id') and $req->input('ps') == $mas->get('pass');
 
-        if (!$mas){
-            abort(404);
-        }
+        // dd($mas);
+        
+        $gaskan = $req->input('uy') == $mas->id AND $req->input('ps') == $mas->pass;
 
         if ($gaskan){
-          $mas->stlog = 1;
+            $mas->stlog = 1;
+            $mas->save();
         }
 
-        if ($this->$mas->stlog == 1) {
-            return view('debugview', compact('mas'));
+        $crit = $mas->stlog == 1;
+        $cok = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
+        ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
+        ->select('pegaw.*', 'dept.*', 'shift.*')
+        ->get();
+
+        if ($crit) {
+            return view('debugview', compact('cok'));
         } else {
             return view('logfun/litLog', compact('mas'));
             session()->flash('nguawur', 'Silahkan login terlebih dahulu!');

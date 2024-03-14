@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +43,7 @@
           </tr>
         </thead>
         <tbody class="table-secondary">
-          @foreach($mas as $p)
+          @foreach($cok as $p)
           <tr>
             <td><b>{{ $p->id }}</b></td>
             <td>{{ $p->nama }}</td>
