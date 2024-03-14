@@ -1,10 +1,19 @@
 <?php
 
-use App\Http\Controllers\Cretcon;
-use App\Http\Controllers\edusKon;
-use App\Http\Controllers\upusKon;
+// view
 use App\Http\Controllers\Liatbg;
-use App\Http\Controllers\delKon;
+use App\Http\Controllers\Cretcon;
+
+    // Basic CRUD
+    use App\Http\Controllers\edusKon;
+    use App\Http\Controllers\upusKon;
+    use App\Http\Controllers\delKon;
+
+// Login and Auth
+use App\Http\Controllers\konCol;
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +27,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Liatbg::class, 'index'])->name('/');
-Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
-Route::get('/create', [Cretcon::class, 'index'])->name('create');
-Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
-Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
-Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
+
+// get all data in homepage
+// Route::get('/dash', [Liatbg::class, 'index'])->name('dash');
+
+// Basic CRUD user
+    Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
+    Route::get('/create', [Cretcon::class, 'index'])->name('create');
+
+        // kolom edit, delete
+        Route::get('/edit/{id}', [edusKon::class, 'see'])->name('edit');
+        Route::patch('/update/{id}', [edusKon::class, 'edus'])->name('up');
+        Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
+
+// Login and Auth
+Route::get('/', [konCol::class, 'index'])->name('formlog');
+Route::patch('/home', [konCol::class, 'masuk'])->name('masuk');
+
+
