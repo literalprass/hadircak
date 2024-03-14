@@ -41,7 +41,7 @@
           </tr>
         </thead>
         <tbody class="table-secondary">
-          @foreach($taek as $p)
+          @foreach($mas as $p)
           <tr>
             <td><b>{{ $p->id }}</b></td>
             <td>{{ $p->nama }}</td>

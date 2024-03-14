@@ -10,7 +10,7 @@ use App\Http\Controllers\Cretcon;
     use App\Http\Controllers\delKon;
 
 // Login and Auth
-use App\Http\Controllers\Kntl\konCol;
+use App\Http\Controllers\konCol;
 
 
 
@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // get all data in homepage
-Route::get('/', [Liatbg::class, 'index'])->name('/');
+// Route::get('/home', [Liatbg::class, 'index'])->name('/home');
 
 // Basic CRUD user
     Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
@@ -41,6 +41,7 @@ Route::get('/', [Liatbg::class, 'index'])->name('/');
         Route::delete('/delete/{id}', [delKon::class, 'delus'])->name('delete');
 
 // Login and Auth
-Route::get('/login', [konCol::class, 'index'])->name('formlog');
+Route::get('/', [konCol::class, 'index'])->name('formlog');
+Route::patch('/home/{id}', [konCol::class, 'masuk'])->name('masuk');
 
 
