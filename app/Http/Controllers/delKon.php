@@ -21,7 +21,7 @@ class delKon extends Controller
 
         session()->flash('suksex', 'Data telah berhasil dihapus!');
 
-        return redirect()->route('/');
+        return redirect()->route('dash');
 
     }
 

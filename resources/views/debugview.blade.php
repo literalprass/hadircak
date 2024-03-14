@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +26,14 @@
         </div>
     </nav>
 
+    <form class="cik" method="GET" action="{{ route('akpergi') }}">
+      @csrf
+      <b>Sedang login dengan atas nama {{$mas->nama}}</b> <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>
+    </form>
+
     <label class="cik"><b>Data Karyawan</b></label>
     <button class="btn btn-dark csbt1"><a class="nostyle" href="/create">Tambah</a></button>
+    
     <div class="contol">
       <table class="bung table">
         <thead>

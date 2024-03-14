@@ -32,25 +32,27 @@ class konCol extends Controller
         ->find($id);
 
         // dd($mas);
+
+        if (!$mas){
+            abort(404);
+        }
         
-        $gaskan = $req->input('uy') == $mas->id AND $req->input('ps') == $mas->pass;
+        $gaskan = $req->input('uy') == $mas->id && $req->input('ps') == $mas->pass;
 
         if ($gaskan){
             $mas->stlog = 1;
             $mas->save();
+        } else{
+            abort(404);
         }
 
         $crit = $mas->stlog == 1;
-        $cok = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
-        ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
-        ->select('pegaw.*', 'dept.*', 'shift.*')
-        ->get();
 
         if ($crit) {
-            return view('debugview', compact('cok'));
+            session(['usid'=> $mas]);
+            return redirect()->route('dash');
         } else {
             return view('logfun/litLog');
-            session()->flash('nguawur', 'Silahkan login terlebih dahulu!');
         }
         
     }

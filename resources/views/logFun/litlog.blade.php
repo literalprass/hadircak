@@ -20,7 +20,7 @@
   </div>
 @endif
 
-    <form method="POST" action="{{ route('masuk')}}">
+    <form method="POST" action="{{ route('home')}}">
         @csrf
         @method('PATCH')
 

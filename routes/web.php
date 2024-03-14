@@ -29,7 +29,9 @@ use Illuminate\Support\Facades\Route;
 
 
 // get all data in homepage
-// Route::get('/dash', [Liatbg::class, 'index'])->name('dash');
+Route::get('/dash', [Liatbg::class, 'index'])->name('dash');
+Route::get('/akpergi', [Liatbg::class, 'pergi'])->name('akpergi');
+
 
 // Basic CRUD user
     Route::post('/post', [upusKon::class, 'insertData', 'index'])->name('post');
@@ -42,6 +44,6 @@ use Illuminate\Support\Facades\Route;
 
 // Login and Auth
 Route::get('/', [konCol::class, 'index'])->name('formlog');
-Route::patch('/home', [konCol::class, 'masuk'])->name('masuk');
+Route::patch('/home', [konCol::class, 'masuk'])->name('home');
 
 
