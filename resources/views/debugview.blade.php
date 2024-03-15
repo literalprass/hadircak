@@ -11,7 +11,7 @@
   </head>
     <title>Dasbor Karyawan</title>
 </head>
-<body class="kicik">
+<body class="kicik bauk text-light">
 
   @if(session('suksex'))
     <div class="alert alert-success alert-dismissible mb-0" role="alert">
@@ -22,25 +22,27 @@
     </div>
   @endif
 
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark"">
+    <nav class="navbar bg-dark border-bottom border-body shadow" data-bs-theme="dark"">
         <div class="navteng">
-          <a class="navbar-brand fw-bold" href="#"><i>Hadir Cak!</i></a>
+          <form class="pew" method="GET" action="{{ route('akpergi') }}">
+            @csrf
+            Sedang login dengan atas nama {{$mas->nama}} <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>
+          </form>
         </div>
     </nav>
 
-    <form class="cik" method="GET" action="{{ route('akpergi') }}">
-      @csrf
-      <b>Sedang login dengan atas nama {{$mas->nama}}</b> <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>
-    </form>
+    
 
-    <label class="cik"><b>Data Karyawan</b></label>
-
+    <div class="cik">
+      <label class="mbot"><b>Data Karyawan</b></label>
+      <label>&nbsp;</label>
     @if ($siu)
-    <button class="btn btn-dark csbt1"><a class="nostyle" href="/create">Tambah</a></button>
+    <button class="btn btn-warning csbt1"><a class="nostyle2" href="/create">Tambah</a></button>
     @endif
+    </div>
 
     <div class="contol">
-      <table class="bung table">
+      <table class="bung table table-striped">
         <thead>
           <tr class="table-dark">
             <th scope="col">ID</th>
@@ -62,17 +64,21 @@
             <td>{{ $p->ket }}</td>
             @if ($siu)
             <td>
-              <button class="btn btn-dark aksi">
-                <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
-              </button> 
-
-              <form method="POST" action="{{ route('delete', ['id' => $p->id]) }}" onsubmit="return confirm('Apakah anda yakin untuk menghapus Karyawan atas nama {{$p->nama}}?')">
-              @csrf
-              @method('DELETE')
-
-              <input type="submit" value="Delete" class="btn btn-danger aksi">
-
-              </form>
+              <div class="aksi">
+                <button class="btn btn-warning">
+                  <a href="/edit/{{ $p->id }}" class="nostyle2">Edit</a>
+                </button> 
+                <ajg class="aksi">
+                  &nbsp;
+                </ajg>
+                <form method="POST" action="{{ route('delete', ['id' => $p->id]) }}" onsubmit="return confirm('Apakah anda yakin untuk menghapus Karyawan atas nama {{$p->nama}}?')">
+                @csrf
+                @method('DELETE')
+  
+                <input type="submit" value="Delete" class="btn btn-danger">
+  
+                </form>
+              </div>
 
             </td>
             @endif

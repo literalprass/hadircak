@@ -12,7 +12,7 @@
   
     <div class="container mt-3">
       
-        <button class="btn btn-dark mt-5 mb-4"><a href="{{ url('/') }}" class="nostyle">Back</a></button>
+        <button class="btn btn-dark mt-5 mb-4"><a href="{{ url('/dash') }}" class="nostyle">Back</a></button>
 
 
       <form method="POST" action="{{ url('/post') }}">

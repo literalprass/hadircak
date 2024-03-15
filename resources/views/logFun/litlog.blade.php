@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/starter.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head> 
-<body>
+<body class="text-light bauk">
 
 <div class="container bjg">
   @if(session('anjim'))
@@ -29,23 +29,28 @@
     </div>
   @endif
 
-    <form method="POST" action="{{ route('home')}}">
-        @csrf
-        @method('PATCH')
-
-        <div class="mb-3">
-            <h4>NIK : </h4>
-          <input type="input" class="form-control" name="uy">
-        </div>
-        <div class="mb-3">
-            <h4>PASS : </h4>
-          <input type="password" class="form-control" name="ps">
-        </div>
-        <div class="bwdhk">
-          <button type="submit" class="btn btn-primary dlm">Login</button>
-          <button type="reset" class="btn btn-danger dlm">Cancel</button>
-        </div>
-      </form>
+    <div class="card iyh bg-dark text-light">
+      <img src="{{ asset('img/IMG_20210222_005110.jpg') }}" class="rounded" alt="">
+      <div class="card-body">
+        <form method="POST" action="{{ route('home')}}">
+          @csrf
+          @method('PATCH')
+  
+          <div class="mb-3">
+              <h6>NIK : </h6>
+            <input type="input" class="form-control" name="uy">
+          </div>
+          <div class="mb-3">
+              <h6>PASS : </h6>
+            <input type="password" class="form-control" name="ps">
+          </div>
+          <div class="bwdhk">
+            <button type="submit" class="btn btn-warning dlm">Login</button>
+            <button type="reset" class="btn btn-danger dlm">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
 </div>
 
 
