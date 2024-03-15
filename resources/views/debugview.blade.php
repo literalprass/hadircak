@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +34,11 @@
     </form>
 
     <label class="cik"><b>Data Karyawan</b></label>
+
+    @if ($siu)
     <button class="btn btn-dark csbt1"><a class="nostyle" href="/create">Tambah</a></button>
-    
+    @endif
+
     <div class="contol">
       <table class="bung table">
         <thead>
@@ -42,7 +47,9 @@
             <th scope="col">NAMA</th>
             <th scope="col">DEPT</th>
             <th scope="col">SHIFT</th>
+            @if ($siu)
             <th scope="col">ACTION</th>
+            @endif
 
           </tr>
         </thead>
@@ -53,6 +60,7 @@
             <td>{{ $p->nama }}</td>
             <td>{{ $p->nama_dept }}</td>
             <td>{{ $p->ket }}</td>
+            @if ($siu)
             <td>
               <button class="btn btn-dark aksi">
                 <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
@@ -67,10 +75,12 @@
               </form>
 
             </td>
+            @endif
           </tr>
           @endforeach
         </tbody>
       </table>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

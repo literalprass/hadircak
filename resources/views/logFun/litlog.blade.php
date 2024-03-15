@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@
 
 <div class="container bjg">
   @if(session('anjim'))
-    <div class="alert alert-success alert-dismissible mb-0" role="alert">
+    <div class="alert alert-danger alert-dismissible mb-0" role="alert">
         {{ session('anjim') }}
         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -22,7 +21,7 @@
     </div>
   @endif
   @if(session('ahak'))
-    <div class="alert alert-success alert-dismissible mb-0" role="alert">
+    <div class="alert alert-danger alert-dismissible mb-0" role="alert">
         {{ session('ahak') }}
         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

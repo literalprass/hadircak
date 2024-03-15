@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegaw;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class Liatbg extends Controller
@@ -15,6 +16,7 @@ class Liatbg extends Controller
 
         $mas = session('usid');
         $crit = $mas->stlog == 1;
+        $siu = $mas->TKT_ID <= 3;
         
         $cok = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
                      ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
@@ -22,7 +24,7 @@ class Liatbg extends Controller
                      ->get();
 
         if ($crit) {
-            return view('debugview', compact('cok','mas'));
+            return view('debugview', compact('cok','mas','siu'));
         } else {
             return view('logfun/litLog');
         }
@@ -33,9 +35,9 @@ class Liatbg extends Controller
     {
         $mas = session('usid');
         $mas->stlog = 0;
-        $mas->save();
+        $mas->save();   
 
-        session()->forget('usid');
+        Session::flush();
         return redirect()->route('formlog');
     }
 }
