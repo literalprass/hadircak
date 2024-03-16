@@ -32,7 +32,12 @@
 }
 
 .mbot {
-    font-size: 18px;
+    font-size: 22px;
+}
+
+.cak {
+    width: 80px;
+    height: 40px;
 }
 
 .bung {

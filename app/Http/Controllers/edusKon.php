@@ -11,7 +11,12 @@ class edusKon extends Controller
 
     public function see($id)
     {
+        $mas = session('usid');
+        $siu = $mas->TKT_ID <= 3;
+
         if (!session('usid')) {
+            abort(404);
+        } else if (!$siu) {
             abort(404);
         }
         

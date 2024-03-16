@@ -37,7 +37,7 @@
       <label class="mbot"><b>Data Karyawan</b></label>
       <label>&nbsp;</label>
     @if ($siu)
-    <button class="btn btn-warning csbt1"><a class="nostyle2" href="/create">Tambah</a></button>
+    <button class="btn btn-dark csbt1 cak"><a class="nostyle" href="/create">Tambah</a></button>
     @endif
     </div>
 
@@ -65,8 +65,8 @@
             @if ($siu)
             <td>
               <div class="aksi">
-                <button class="btn btn-warning">
-                  <a href="/edit/{{ $p->id }}" class="nostyle2">Edit</a>
+                <button class="btn btn-dark">
+                  <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
                 </button> 
                 <ajg class="aksi">
                   &nbsp;
