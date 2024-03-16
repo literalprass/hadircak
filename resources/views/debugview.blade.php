@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +11,7 @@
   </head>
     <title>Dasbor Karyawan</title>
 </head>
-<body class="kicik">
+<body class="kicik bauk text-light">
 
   @if(session('suksex'))
     <div class="alert alert-success alert-dismissible mb-0" role="alert">
@@ -20,51 +22,81 @@
     </div>
   @endif
 
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark"">
+    <nav class="navbar bg-dark border-bottom border-body shadow" data-bs-theme="dark"">
         <div class="navteng">
-          <a class="navbar-brand fw-bold" href="#"><i>Hadir Cak!</i></a>
+          <form class="pew" method="GET" action="{{ route('akpergi') }} "  onsubmit="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
+            @csrf
+            Sedang login dengan atas nama {{$mas->nama}} <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>
+          </form>
         </div>
     </nav>
 
-    <label class="cik"><b>Data Karyawan</b></label>
-    <button class="btn btn-dark csbt1"><a class="nostyle" href="/create">Tambah</a></button>
+    
+
+    <div class="cik">
+      <label class="mbot"><b>Data Karyawan</b></label>
+      <label>&nbsp;</label>
+    @if ($siu)
+    <button class="btn btn-dark csbt1 cak"><a class="nostyle" href="/create">Tambah</a></button>
+    @endif
+    </div>
+
     <div class="contol">
-      <table class="bung table">
+      <table class="bung table table-striped shadow">
         <thead>
           <tr class="table-dark">
             <th scope="col">ID</th>
             <th scope="col">NAMA</th>
             <th scope="col">DEPT</th>
             <th scope="col">SHIFT</th>
+            @if ($siu)
             <th scope="col">ACTION</th>
+            @endif
 
           </tr>
         </thead>
         <tbody class="table-secondary">
-          @foreach($taek as $p)
+          @foreach($cok as $p)
           <tr>
             <td><b>{{ $p->id }}</b></td>
             <td>{{ $p->nama }}</td>
             <td>{{ $p->nama_dept }}</td>
             <td>{{ $p->ket }}</td>
+
+            @if ($siu)
             <td>
-              <button class="btn btn-dark aksi">
-                <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
-              </button> 
-
-              <form method="POST" action="{{ route('delete', ['id' => $p->id]) }}" onsubmit="return confirm('Apakah anda yakin untuk menghapus Karyawan atas nama {{$p->nama}}?')">
-              @csrf
-              @method('DELETE')
-
-              <input type="submit" value="Delete" class="btn btn-danger aksi">
-
-              </form>
+              <div class="aksi">
+                <button class="btn btn-dark">
+                  <a href="/edit/{{ $p->id }}" class="nostyle">Edit</a>
+                </button> 
+                <ajg class="aksi">
+                  &nbsp;
+                </ajg>
+                <form method="POST" action="{{ route('delete', ['id' => $p->id]) }}" onsubmit="return confirm('Apakah anda yakin untuk menghapus Karyawan atas nama {{$p->nama}}?')">
+                @csrf
+                @method('DELETE')
+  
+                <input type="submit" value="Delete" class="btn btn-danger">
+  
+                </form>
+              </div>
 
             </td>
+            @endif
           </tr>
           @endforeach
+          <tr class="table-dark">
+            <th scope="col" class="mbek"><a class="sess" href="{{ url('all') }}">Lihat semua data...</a></th>
+            <th scope="col"></th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            @if ($siu)
+            <th scope="col">&nbsp;</th>
+            @endif
+          </tr>
         </tbody>
       </table>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

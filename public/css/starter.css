@@ -20,15 +20,39 @@
 }
 
 .cik {
-    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    /* justify-content: space-evenly; */
+    /* padding-top: 30px;
     margin-left: 32px;
     text-align: start;
-    font-size: 18px;
+    font-size: 18px; */
+}
+
+.mbot {
+    font-size: 22px;
+}
+
+.mbek {
+    font-size: 14px;
+}
+
+.sess {
+    color: white;
+}
+.sess:hover {
+    color: rgb(202, 201, 201);
+}
+
+.cak {
+    width: 80px;
+    height: 40px;
 }
 
 .bung {
     text-align: center;
-    width: 36% !important;
 }
 
 .csbt1{
@@ -41,9 +65,54 @@
     color: white;
 }
 
+.nostyle2 {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
 .aksi {
+    display: flex;
     font-size: 10px !important;
-    height: 28px !important;
-    float: inline-start;
-    margin-left: 4px;
+    /* margin-left: 4px; */
+    flex-direction: row;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+}
+
+.bwdhk {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.dlm{
+    width: 48%;
+}
+
+.bjg {
+    display: grid;
+    margin-top: 40px;
+    /* margin-top: 10%; */
+    width: 30% !important;
+    /* margin-bottom: 10%; */
+}
+
+.iyh {
+    padding: 20px;
+}
+
+.bauk {
+    background-color:#27292b;
+}
+
+img {
+    width:auto;
+}
+
+.pew {
+    float: right;
+    position: relative;
+    margin-left: 960px;
 }

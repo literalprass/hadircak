@@ -11,6 +11,15 @@ class edusKon extends Controller
 
     public function see($id)
     {
+        $mas = session('usid');
+        $siu = $mas->TKT_ID <= 3;
+
+        if (!session('usid')) {
+            abort(404);
+        } else if (!$siu) {
+            abort(404);
+        }
+        
         $taek = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
         ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
         ->select('pegaw.*', 'dept.*', 'shift.*')
@@ -42,7 +51,7 @@ class edusKon extends Controller
 
         session()->flash('suksex', 'Data telah berhasil diedit!');
 
-        return redirect()->route('/');
+        return redirect()->route('dash');
 
     }
 

@@ -10,6 +10,15 @@ class delKon extends Controller
 
     public function delus($id)
     {
+        $mas = session('usid');
+        $siu = $mas->TKT_ID <= 3;
+
+        if (!session('usid')) {
+            abort(404);
+        } else if (!$siu) {
+            abort(404);
+        }
+        
         $uhuy = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
         ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
         ->select('pegaw.*', 'dept.*', 'shift.*')
@@ -21,7 +30,7 @@ class delKon extends Controller
 
         session()->flash('suksex', 'Data telah berhasil dihapus!');
 
-        return redirect()->route('/');
+        return redirect()->route('dash');
 
     }
 

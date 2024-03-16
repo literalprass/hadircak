@@ -13,7 +13,7 @@
 
     <div class="container">
         <button class="btn btn-dark">
-            <a href="{{ url('/') }}" class="nostyle">Back</a>
+            <a href="{{ url('/dash') }}" class="nostyle">Back</a>
         </button>
 
 
