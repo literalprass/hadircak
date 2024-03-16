@@ -14,6 +14,7 @@ class Liatbg extends Controller
             abort(404);
         }
 
+        $batas = 4;
         $mas = session('usid');
         $crit = $mas->stlog == 1;
         $siu = $mas->TKT_ID <= 3;
@@ -21,6 +22,7 @@ class Liatbg extends Controller
         $cok = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
                      ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
                      ->select('pegaw.*', 'dept.*', 'shift.*')
+                     ->limit($batas)
                      ->get();
 
         if ($crit) {

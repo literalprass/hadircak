@@ -24,7 +24,7 @@
 
     <nav class="navbar bg-dark border-bottom border-body shadow" data-bs-theme="dark"">
         <div class="navteng">
-          <form class="pew" method="GET" action="{{ route('akpergi') }}">
+          <form class="pew" method="GET" action="{{ route('akpergi') }} "  onsubmit="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
             @csrf
             Sedang login dengan atas nama {{$mas->nama}} <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>
           </form>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="contol">
-      <table class="bung table table-striped">
+      <table class="bung table table-striped shadow">
         <thead>
           <tr class="table-dark">
             <th scope="col">ID</th>
@@ -62,6 +62,7 @@
             <td>{{ $p->nama }}</td>
             <td>{{ $p->nama_dept }}</td>
             <td>{{ $p->ket }}</td>
+
             @if ($siu)
             <td>
               <div class="aksi">
@@ -84,6 +85,15 @@
             @endif
           </tr>
           @endforeach
+          <tr class="table-dark">
+            <th scope="col" class="mbek"><a class="sess" href="{{ url('all') }}">Lihat semua data...</a></th>
+            <th scope="col"></th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            @if ($siu)
+            <th scope="col">&nbsp;</th>
+            @endif
+          </tr>
         </tbody>
       </table>
     </div>
