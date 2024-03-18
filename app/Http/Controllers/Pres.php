@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Abs;
 use App\Models\Pegaw;
 
 class Pres extends Controller
 {
     protected $join;
+    protected $abs;
 
     public function __construct()
     {
@@ -14,23 +17,19 @@ class Pres extends Controller
                 ->join('abspgw', 'pegaw.ID', '=', 'abspgw.ID')
                 ->select('pegaw.*', 'dept.*', 'shift.*','abspgw.*')
                 ->get();
+        $this->abs = Abs::get();
     }
 
     public function index()
     {
         $mas = session('usid');
-        $siu = $mas->TKT_ID <= 3;
 
         if (!session('usid')) {
             abort(404);
-        } else if (!$siu) {
-            abort(404);
-        }
+        };
 
-        $data = $this->join;
-
-        dd($data, $mas);
+        echo $this->join, $this->abs;
         
-        return view('prsn', compact('data'));
+        // return view('prsn', compact('data'));
     }
 }
