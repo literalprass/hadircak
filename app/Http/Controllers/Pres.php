@@ -43,21 +43,31 @@ class Pres extends Controller
         app()->setLocale('id');
         $tglwk = Carbon::now();
 
+        $plg = $this->abs->abs_log;
+
+        dd($plg);
+
         $mas = session('usid');
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
         $wk = $tglwk->setTimezone('Asia/Jakarta')->format('h:i:s');
 
-        dd($tgl,$wk);
+        // dd($tgl,$wk);
 
         $absen = [
         'id' => $mas->id,
         'tgl' => $tgl,
         'abs_awal' => $wk,
-        // 'abs_akhir' => '',
         'abs_log' => 'A'
         ];
 
         Abs::create($absen);
+
+        // if ($plg) {
+        //     $this->abspgw->abs_akhir = $wk;
+        //     $this->abspgw->save();
+        // } else {
+        //     echo $mas;
+        // };
 
         return redirect()->route('pres');
     }
