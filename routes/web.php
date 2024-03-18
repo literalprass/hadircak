@@ -49,5 +49,7 @@ Route::patch('/home', [konCol::class, 'masuk'])->name('home');
 
 // Presensi in
 Route::get('/presensi', [Pres::class, 'index'])->name('pres');
+Route::post('/prs', [Pres::class, 'prs'])->name('prs');
+
 
 

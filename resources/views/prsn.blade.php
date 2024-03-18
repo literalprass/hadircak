@@ -12,5 +12,12 @@
         back
     </button>
     </a>
+
+    <form action="{{url('/prs')}}" method="POST">
+    @csrf
+        <button type="submit">
+            Absen
+        </button>
+    </form>
 </body>
 </html>
