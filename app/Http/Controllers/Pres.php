@@ -50,9 +50,9 @@ class Pres extends Controller
         $tglwk = Carbon::now();
 
         $plg = Abs::find($id);
-        $c = $this->abspgw->count();
+        // $c = $this->abspgw->count();
         $crd = Abs::whereDate('tgl','=',DB::raw('CURDATE()'))->find($id);
-        $itng = count($crd ?? []);
+        $itng = is_array($crd) ? count($crd) : 0;
 
         dd($itng);
         
@@ -67,12 +67,12 @@ class Pres extends Controller
         'abs_log' => 'A'
         ];
 
-        if ($c == 0) {
+        if ($itng == 0) {
 
             Abs::create($absen);
             return redirect()->route('pres');
 
-        } else {
+        } elseif ($itng == 1 ) {
 
         // $confabs = $plg->abs_log == 'A';
             $plg->abs_akhir = $wk;
