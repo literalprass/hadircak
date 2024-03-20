@@ -52,9 +52,19 @@ class Pres extends Controller
         $plg = Abs::find($id);
         // $c = $this->abspgw->count();
         $crd = Abs::whereDate('tgl','=',DB::raw('CURDATE()'))->find($id);
-        $itng = is_array($crd) ? count($crd) : 0;
 
-        dd($itng);
+        if ($crd == null) {
+
+            $mbut = count($crd ?? []);
+            // dd($mbut);
+
+        } else {
+
+            $itng = $crd->count();
+            // dd($itng);
+        };
+        // dd($crd->count());
+        // $itng = $crd->count();
         
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
         $wk = $tglwk->setTimezone('Asia/Jakarta')->format('h:i:s');
@@ -67,12 +77,12 @@ class Pres extends Controller
         'abs_log' => 'A'
         ];
 
-        if ($itng == 0) {
+        if ($mbut == 0) {
 
             Abs::create($absen);
             return redirect()->route('pres');
 
-        } elseif ($itng == 1 ) {
+        } elseif ($itng == 2) {
 
         // $confabs = $plg->abs_log == 'A';
             $plg->abs_akhir = $wk;
