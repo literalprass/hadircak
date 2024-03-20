@@ -32,7 +32,7 @@ class Pres extends Controller
         };
 
         $id = session('usid')->id;
-        $plg = $this->abs->find($id);
+        $plg = Abs::find($id);
         
 
         // echo $mas;
