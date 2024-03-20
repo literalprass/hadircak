@@ -19,8 +19,6 @@ class Pres extends Controller
                             ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
                             ->join('abspgw', 'pegaw.ID', '=', 'abspgw.ID')
                             ->select('pegaw.*', 'dept.*', 'shift.*','abspgw.*');
-                            
-        $this->abs = Abs::get();
         $this->display = Pegaw::join('dept', 'pegaw.DEPT_ID', '=', 'dept.DEPT_ID')
                             ->join('shift', 'pegaw.SHIFT_ID', '=', 'shift.SHIFT_ID')
                             ->select('pegaw.*', 'dept.*', 'shift.*')
@@ -33,9 +31,13 @@ class Pres extends Controller
             abort(404);
         };
 
+        $id = session('usid')->id;
+        $plg = $this->abs->find($id);
+        
+
         // echo $mas;
         
-        return view('prsn');
+        return view('prsn',compact('plg'));
     }
     
     public function prs()
@@ -46,9 +48,11 @@ class Pres extends Controller
 
         $tglwk = Carbon::now();
 
-        $plg = $this->abspgw->find($id);
+        $plg = Abs::find($id);
+        $c = $this->abspgw->count();
+    
 
-        dd($plg->abs_log);
+        // dd($c);
         
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
         $wk = $tglwk->setTimezone('Asia/Jakarta')->format('h:i:s');
@@ -57,20 +61,24 @@ class Pres extends Controller
         'id' => $mas->id,
         'tgl' => $tgl,
         'abs_awal' => $wk,
+        'abs_akhir' => '00:00:00',
         'abs_log' => 'A'
         ];
 
-        
+        if ($c == 0) {
 
-        // Abs::create($absen);
+            Abs::create($absen);
+            return redirect()->route('pres');
 
-        // if ($plg) {
-        //     $this->abspgw->abs_akhir = $wk;
-        //     $this->abspgw->save();
-        // } else {
-        //     echo $mas;
-        // };
+        } else {
 
-        // return redirect()->route('pres');
+        // $confabs = $plg->abs_log == 'A';
+        $plg->abs_akhir = $wk;
+        $plg->abs_log = 'S';
+
+        $plg->save();
+
+        return redirect()->route('pres');
+        };
     }
 }

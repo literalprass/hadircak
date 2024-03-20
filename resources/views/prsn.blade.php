@@ -1,3 +1,7 @@
+<?php 
+echo $plg;
+?><br><br>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

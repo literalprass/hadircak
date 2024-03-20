@@ -13,7 +13,7 @@ class Abs extends Model
         'id',
         'tgl',
         'abs_awal',
-        // 'abs_akhir',
+        'abs_akhir',
         'abs_log'
     ];
 
