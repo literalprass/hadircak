@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Abs;
 use App\Models\Pegaw;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Pres extends Controller
 {
@@ -50,9 +51,10 @@ class Pres extends Controller
 
         $plg = Abs::find($id);
         $c = $this->abspgw->count();
-    
+        $crd = Abs::whereDate('tgl','=',DB::raw('CURDATE()'))->find($id);
+        $itng = count($crd ?? []);
 
-        // dd($c);
+        dd($itng);
         
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
         $wk = $tglwk->setTimezone('Asia/Jakarta')->format('h:i:s');
@@ -73,12 +75,12 @@ class Pres extends Controller
         } else {
 
         // $confabs = $plg->abs_log == 'A';
-        $plg->abs_akhir = $wk;
-        $plg->abs_log = 'S';
+            $plg->abs_akhir = $wk;
+            $plg->abs_log = 'S';
 
-        $plg->save();
+            $plg->save();
 
-        return redirect()->route('pres');
+            return redirect()->route('pres');
         };
     }
 }
