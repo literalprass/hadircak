@@ -33,7 +33,7 @@ class Pres extends Controller
         };
 
         $id = session('usid')->id;
-        $plg = Abs::find($id);
+        $plg = Abs::whereDate('tgl','=',DB::raw('CURDATE()'))->find($id);
         
 
         // echo $mas;
@@ -48,23 +48,10 @@ class Pres extends Controller
         $id = $mas->id;
 
         $tglwk = Carbon::now();
-
         $plg = Abs::find($id);
-        // $c = $this->abspgw->count();
-        $crd = Abs::whereDate('tgl','=',DB::raw('CURDATE()'))->find($id);
+        $crd = Abs::where('id', $id)->where('tgl', DB::raw('CURDATE()'));
+        $itng = $crd->count();
 
-        if ($crd == null) {
-
-            $mbut = count($crd ?? []);
-            // dd($mbut);
-
-        } else {
-
-            $itng = $crd->count();
-            // dd($itng);
-        };
-        // dd($crd->count());
-        // $itng = $crd->count();
         
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
         $wk = $tglwk->setTimezone('Asia/Jakarta')->format('h:i:s');
@@ -75,22 +62,28 @@ class Pres extends Controller
         'abs_awal' => $wk,
         'abs_akhir' => '00:00:00',
         'abs_log' => 'A'
-        ];
+        ];;
 
-        if ($mbut == 0) {
+        if (($itng == 0)) {
 
             Abs::create($absen);
             return redirect()->route('pres');
 
-        } elseif ($itng == 2) {
+        } elseif ($itng == 1 && $plg->abs_log == 'A') {
 
-        // $confabs = $plg->abs_log == 'A';
             $plg->abs_akhir = $wk;
             $plg->abs_log = 'S';
 
             $plg->save();
 
             return redirect()->route('pres');
+        } else {
+
+            $b = "anda sudah absen untuk hari ini";
+            echo $b;
+            dd();
         };
+        
+       
     }
 }
