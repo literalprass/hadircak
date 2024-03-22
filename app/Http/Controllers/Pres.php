@@ -68,7 +68,8 @@ class Pres extends Controller
 
             Abs::create($absen);
             return redirect()->route('pres');
-
+        
+        //masih ada bug, kebaca record sebelumnya
         } elseif ($itng == 1 && $plg->abs_log == 'A') {
 
             $plg->abs_akhir = $wk;
