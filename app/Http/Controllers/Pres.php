@@ -48,9 +48,13 @@ class Pres extends Controller
         $id = $mas->id;
 
         $tglwk = Carbon::now();
-        $plg = Abs::find($id);
         $crd = Abs::where('id', $id)->where('tgl', DB::raw('CURDATE()'));
         $itng = $crd->count();
+        $ac = $crd->find($id);
+        // echo $ac->abs_log;
+        // dd();
+
+        // dd($itng);
 
         
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
@@ -70,19 +74,19 @@ class Pres extends Controller
             return redirect()->route('pres');
         
         //masih ada bug, kebaca record sebelumnya
-        } elseif ($itng == 1 && $plg->abs_log == 'A') {
+        } elseif ($itng == 1 && $ac->abs_log == 'A') {
+            
+            $ac->abs_akhir = $wk;
+            $ac->abs_log = 'S';
 
-            $plg->abs_akhir = $wk;
-            $plg->abs_log = 'S';
-
-            $plg->save();
+            $ac->save();
 
             return redirect()->route('pres');
         } else {
 
-            $b = "anda sudah absen untuk hari ini";
-            echo $b;
+            echo 'Anda sudah absen untuk hari ini';
             dd();
+
         };
         
        
