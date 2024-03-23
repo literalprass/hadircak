@@ -12,17 +12,19 @@ echo $plg;
     @vite('resources/css/app.css')
 </head>
 <body>
-    <a href="{{url('/dash')}}">
-    <button>
-        back
-    </button>
-    </a>
-
-    <form action="{{url('/prs')}}" method="POST">
-    @csrf
-        <button type="submit">
-            Absen
-        </button>
-    </form>
+    <div>
+        <a href="{{url('/dash')}}">
+            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg">
+                back
+            </button>
+            </a>
+        
+            <form action="{{url('/prs')}}" method="POST">
+            @csrf
+                <button type="submit"class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
+                    Absen
+                </button>
+            </form>
+    </div>
 </body>
 </html>
