@@ -46,10 +46,9 @@ Route::get('/akpergi', [Liatbg::class, 'pergi'])->name('akpergi');
 Route::get('/', [konCol::class, 'index'])->name('formlog');
 Route::patch('/home', [konCol::class, 'masuk'])->name('home');
 
-
-// Presensi in
-Route::get('/presensi', [Pres::class, 'index'])->name('pres');
-Route::post('/prs', [Pres::class, 'prs'])->name('prs');
+    // Presensi in out
+    Route::get('/presensi', [Pres::class, 'index'])->name('pres');
+    Route::post('/prs', [Pres::class, 'prs'])->name('prs');
 
 
 

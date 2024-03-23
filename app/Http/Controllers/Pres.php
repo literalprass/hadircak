@@ -44,36 +44,33 @@ class Pres extends Controller
     public function prs()
     {
         app()->setLocale('id');
+
         $mas = session('usid');
         $id = $mas->id;
 
         $tglwk = Carbon::now();
+        
         $crd = Abs::where('id', $id)->where('tgl', DB::raw('CURDATE()'));
-        $itng = $crd->count();
-        $ac = $crd->find($id);
-        // echo $ac->abs_log;
-        // dd();
-
-        // dd($itng);
-
+            $itng = $crd->count();
+            $ac = $crd->find($id);
         
         $tgl = $tglwk->setTimezone('Asia/Jakarta')->format('Y-m-d');
         $wk = $tglwk->setTimezone('Asia/Jakarta')->format('h:i:s');
 
-        $absen = [
-        'id' => $mas->id,
-        'tgl' => $tgl,
-        'abs_awal' => $wk,
-        'abs_akhir' => '00:00:00',
-        'abs_log' => 'A'
-        ];;
+            $absen = [
+            'id' => $mas->id,
+            'tgl' => $tgl,
+            'abs_awal' => $wk,
+            'abs_akhir' => '00:00:00',
+            'abs_log' => 'A'
+            ];;
 
-        if (($itng == 0)) {
+        if ($itng == 0) {
 
             Abs::create($absen);
             return redirect()->route('pres');
         
-        //masih ada bug, kebaca record sebelumnya
+        //masih ada bug, kebaca record sebelumnya -- bug fixed
         } elseif ($itng == 1 && $ac->abs_log == 'A') {
             
             $ac->abs_akhir = $wk;
