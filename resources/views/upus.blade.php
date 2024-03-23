@@ -65,7 +65,6 @@
         <input type="submit" value="Update" class="btn btn-primary yh">
         <input type="reset" value="Cancel" class="btn btn-danger yh">
       </div>
-      <br>
   
     </form>
       </div>

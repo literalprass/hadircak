@@ -23,4 +23,9 @@ class Pegaw extends Model
     {
         return $this->hasMany(Tkt::class);
     }
+    
+    public function abspgw() 
+    {
+        return $this->hasMany(Abs::class);
+    }
 }

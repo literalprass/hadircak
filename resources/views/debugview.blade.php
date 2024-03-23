@@ -24,6 +24,9 @@
 
     <nav class="navbar bg-dark border-bottom border-body shadow" data-bs-theme="dark"">
         <div class="navteng">
+          <a class="btn btn-warning" href='{{ url('presensi') }}'>
+            PRESENSI
+          </a>
           <form class="pew" method="GET" action="{{ route('akpergi') }} "  onsubmit="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
             @csrf
             Sedang login dengan atas nama {{$mas->nama}} <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>

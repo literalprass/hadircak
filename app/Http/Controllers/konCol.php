@@ -40,10 +40,10 @@ class konCol extends Controller
         
         $gaskan = $req->input('uy') == $mas->id && $req->input('ps') == $mas->pass;
 
-        if ($gaskan){
+        if ($gaskan) {
             $mas->stlog = 1;
             $mas->save();
-        } else{
+        } else {
             return redirect()->back();
             session()->flash('ahak', 'Password tidak sesuai!');
         }

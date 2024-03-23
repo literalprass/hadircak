@@ -13,7 +13,7 @@ class Liatbg extends Controller
         if (!session('usid')) {
             abort(404);
         }
-
+        
         $batas = 4;
         $mas = session('usid');
         $crit = $mas->stlog == 1;

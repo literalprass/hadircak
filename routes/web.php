@@ -11,10 +11,10 @@ use App\Http\Controllers\Cretcon;
 
 // Login and Auth
 use App\Http\Controllers\konCol;
-
-
-
 use Illuminate\Support\Facades\Route;
+
+// presensi
+use App\Http\Controllers\Pres;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +45,10 @@ Route::get('/akpergi', [Liatbg::class, 'pergi'])->name('akpergi');
 // Login and Auth
 Route::get('/', [konCol::class, 'index'])->name('formlog');
 Route::patch('/home', [konCol::class, 'masuk'])->name('home');
+
+    // Presensi in out
+    Route::get('/presensi', [Pres::class, 'index'])->name('pres');
+    Route::post('/prs', [Pres::class, 'prs'])->name('prs');
+
 
 
