@@ -67,7 +67,11 @@ class Pres extends Controller
 
         if ($itng == 0) {
 
-            Abs::create($absen);
+            // Abs::create($absen);
+            
+            session()->flash('absaw', 'Absen masuk berhasil disimpan!');
+
+            dd(session()->all());
             return redirect()->route('pres');
         
         //masih ada bug, kebaca record sebelumnya -- bug fixed
