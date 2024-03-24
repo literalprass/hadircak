@@ -33,7 +33,7 @@ class Pres extends Controller
         };
 
         $id = session('usid')->id;
-        $plg = Abs::whereDate('tgl','=',DB::raw('CURDATE()'))->find($id);
+        $plg = Abs::where('id', $id)->get();
         
 
         // echo $mas;
