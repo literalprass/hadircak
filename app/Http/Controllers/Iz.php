@@ -16,18 +16,21 @@ class Iz extends Controller
 
     public function __construct()
     {
-        $this->dp = Pegaw::join('izin', 'pegaw.ID', '=', 'izin.ID')
-                     ->join('abspgw', 'pegaw.ID', '=', 'abspgw.ID')
-                     ->select('pegaw.*', 'izin.*', 'abspgw.*');
+        $this->dp = Pegaw::join('abspgw', 'pegaw.ID', '=', 'abspgw.ID')
+                    ->join('izin', 'pegaw.ID', '=', 'izin.ID')
+                    ->select('pegaw.*', 'izin.*', 'abspgw.*');
     }
 
     public function index()
     {
+        $pgw = session('usid');
+        $id = $pgw->id;
+
         if (!session('usid')) {
             abort(404);
         }
         
-        echo $this->dp->get();
+        echo $this->dp->where('pegaw.id',$id)->get();
         dd($this->dp->get());
         
         return view('izin');
