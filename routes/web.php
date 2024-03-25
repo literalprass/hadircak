@@ -8,7 +8,7 @@ use App\Http\Controllers\Cretcon;
     use App\Http\Controllers\edusKon;
     use App\Http\Controllers\upusKon;
     use App\Http\Controllers\delKon;
-
+use App\Http\Controllers\Iz;
 // Login and Auth
 use App\Http\Controllers\konCol;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +49,11 @@ Route::patch('/home', [konCol::class, 'masuk'])->name('home');
     // Presensi in out
     Route::get('/presensi', [Pres::class, 'index'])->name('pres');
     Route::post('/prs', [Pres::class, 'prs'])->name('prs');
+
+        // Input  izin
+        Route::get('/izin', [Iz::class, 'index'])->name('izfrm');
+
+        
 
 
 
