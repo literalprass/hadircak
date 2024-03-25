@@ -33,7 +33,7 @@ class Pres extends Controller
         };
 
         $id = session('usid')->id;
-        $plg = Abs::where('id', $id)->get();
+        $plg = Abs::where('id', $id)->orderBy('tgl','desc')->get();
         
 
         // echo $mas;
@@ -67,12 +67,8 @@ class Pres extends Controller
 
         if ($itng == 0) {
 
-            // Abs::create($absen);
-            
-            session()->flash('absaw', 'Absen masuk berhasil disimpan!');
-
-            dd(session()->all());
-            return redirect()->route('pres');
+            Abs::create($absen);
+            return redirect()->route('pres')->with('absaw', 'Absen masuk berhasil disimpan!');
         
         //masih ada bug, kebaca record sebelumnya -- bug fixed
         } elseif ($itng == 1 && $ac->abs_log == 'A') {
@@ -82,11 +78,11 @@ class Pres extends Controller
 
             $ac->save();
 
+            session()->flash('absak', 'Absen pulang berhasil disimpan!');
             return redirect()->route('pres');
         } else {
 
-            echo 'Anda sudah absen untuk hari ini';
-            dd();
+            return redirect()->route('pres');
 
         };
         
