@@ -59,9 +59,9 @@ class Iz extends Controller
         if ($itng == 1 && $dtr == $apalah) {
 
             Izin::create($ijen);
-
-            $ac->abs_log = $rq->input('tp');
-            $ac->save();
+            Abs::where('id',$id)
+                ->where('tgl', DB::raw('CURDATE()'))
+                ->update(['abs_log' => $rq->input('tp')]);
 
             return redirect()->route('pres');
 
