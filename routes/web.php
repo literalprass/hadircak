@@ -52,6 +52,8 @@ Route::patch('/home', [konCol::class, 'masuk'])->name('home');
 
         // Input  izin
         Route::get('/izin', [Iz::class, 'index'])->name('izfrm');
+        Route::post('/izup', [Iz::class, 'upiz'])->name('upizin');
+
 
         
 

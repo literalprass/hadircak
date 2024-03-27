@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pegaw;
 use App\Models\Abs;
 use App\Models\Izin;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
@@ -24,12 +24,28 @@ class Iz extends Controller
     public function index()
     {
         $pgw = session('usid');
-        $id = $pgw->id;
+        // $id = $pgw->id;
 
         if (!session('usid')) {
             abort(404);
         }
         
         return view('izin');
+    }
+
+    function upiz(Request $rq) 
+    {
+        $dtstr = $rq->input('dt');
+        $dtr = Carbon::parse($dtstr);
+        $fromdt = $dtr->format('Y-m-d');
+
+        $ijen = [
+            'tipe' => $rq->input('tp'),
+            'tgl'=> $fromdt,
+            'alasan' => $rq->input('als')
+        ];
+        
+        echo "hello";
+        dd($ijen);
     }
 }
