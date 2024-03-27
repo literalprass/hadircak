@@ -11,7 +11,8 @@ class Izin extends Model
     protected $fillable = [
         'tipe',
         'tgl',
-        'alasan'
+        'alasan',
+        'id'
     ];
     public function pegaw()
     {
