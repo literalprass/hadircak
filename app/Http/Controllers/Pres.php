@@ -80,10 +80,6 @@ class Pres extends Controller
                     'abs_log' => 'S'
                 ]);
 
-            // $ac->abs_akhir = $wk;
-            // $ac->abs_log = 'S';
-            // $ac->save();
-
             session()->flash('absak', 'Absen pulang berhasil disimpan!');
             return redirect()->route('pres');
 
