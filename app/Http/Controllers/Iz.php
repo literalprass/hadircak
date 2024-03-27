@@ -30,9 +30,6 @@ class Iz extends Controller
             abort(404);
         }
         
-        echo $this->dp->where('pegaw.id',$id)->get();
-        dd($this->dp->get());
-        
         return view('izin');
     }
 }
