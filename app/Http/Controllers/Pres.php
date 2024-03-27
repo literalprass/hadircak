@@ -72,14 +72,21 @@ class Pres extends Controller
         
         //masih ada bug, kebaca record sebelumnya -- bug fixed
         } elseif ($itng == 1 && $ac->abs_log == 'A') {
-            
-            $ac->abs_akhir = $wk;
-            $ac->abs_log = 'S';
 
-            $ac->save();
+            Abs::where('id',$id)
+                ->where('tgl', DB::raw('CURDATE()'))
+                ->update([
+                    'abs_akhir' => $wk,
+                    'abs_log' => 'S'
+                ]);
+
+            // $ac->abs_akhir = $wk;
+            // $ac->abs_log = 'S';
+            // $ac->save();
 
             session()->flash('absak', 'Absen pulang berhasil disimpan!');
             return redirect()->route('pres');
+
         } else {
 
             return redirect()->route('pres');
