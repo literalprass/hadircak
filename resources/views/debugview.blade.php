@@ -24,18 +24,18 @@
 
     <nav class="navbar bg-dark border-bottom border-body shadow" data-bs-theme="dark"">
         <div class="navteng">
-          <a class="btn btn-warning" href='{{ url('presensi') }}'>
+          <a class="btn btn-warning mr-2" href='{{ url('presensi') }}'>
             PRESENSI
           </a>
           @if ($siu)
-          <a class="btn btn-warning" href='{{ url('/appr') }}'>
-            ACC IZIN
+          <a class="btn btn-secondary" href='{{ url('/admin') }}'>
+            ADMIN DASHBOARD
           </a>
           @endif
           <a href="#" class="nostyle mamia fw-bold">
             Selamat datang {{ $mas->nama }}
           </a>
-          <a href="{{ url('akpergi') }}" class="btn btn-danger"  onclick="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
+          <a href="{{ url('akpergi') }}" class="btn btn-secondary"  onclick="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
             LOGOUT
           </a>
           

@@ -41,10 +41,6 @@ class Iz extends Controller
         //date format
         $dtstr = $rq->input('dt');
         $dtr = Carbon::parse($dtstr)->format('Y-m-d');
-        $crd = Abs::where('id', $id)->where('tgl', DB::raw('CURDATE()'));
-            $itng = $crd->count();
-                $apacona = Carbon::now();
-                $apalah = $apacona->setTimezone('Asia/Jakarta')->format('Y-m-d');
 
         //desc and type
         $desc = $rq->input('tp');
@@ -73,26 +69,8 @@ class Iz extends Controller
 
         // dd($itng,$dtr,$apalah);
 
-        if ($itng == 1 && $dtr == $apalah) {
+        Izin::create($ijen);
+        return redirect()->route('pres');
 
-            // dd($ijen);
-            Izin::create($ijen);
-            Abs::where('id',$id)
-                ->where('tgl', DB::raw('CURDATE()'))
-                ->update([
-                        'abs_log' => $rq->input('tp'),
-                        'DESC2' => $desc2
-                    ]);
-
-            return redirect()->route('pres');
-
-        } else {echo "goblok";dd($itng,$dtr);
-
-            Izin::create($ijen);
-
-        };
-
-        echo "hello";
-        dd($ijen);
     }
 }
