@@ -38,30 +38,51 @@ class Iz extends Controller
         $pgw = session('usid');
         $id = $pgw->id;
 
+        //date format
         $dtstr = $rq->input('dt');
         $dtr = Carbon::parse($dtstr)->format('Y-m-d');
         $crd = Abs::where('id', $id)->where('tgl', DB::raw('CURDATE()'));
             $itng = $crd->count();
-            $ac = $crd->find($id);
                 $apacona = Carbon::now();
                 $apalah = $apacona->setTimezone('Asia/Jakarta')->format('Y-m-d');
-                // dd($ac);
+
+        //desc and type
+        $desc = $rq->input('tp');
+        switch ($desc) {
+            case 'C' :
+                $desc2 = 'Izin Sakit';
+                break;
+            case 'T' :
+                $desc2 = 'Masuk Telat';
+                break;
+            case 'L' :
+                $desc2 = 'Lain - Lain';
+                break;
+            default :
+                echo "Invalid data request";
+                dd();
+        }
 
         $ijen = [
             'tipe' => $rq->input('tp'),
             'tgl'=> $dtr,
             'alasan' => $rq->input('als'),
-            'id' => $pgw->id
+            'id' => $pgw->id,
+            'DESC2' => $desc2
         ];
 
         // dd($itng,$dtr,$apalah);
 
         if ($itng == 1 && $dtr == $apalah) {
 
+            // dd($ijen);
             Izin::create($ijen);
             Abs::where('id',$id)
                 ->where('tgl', DB::raw('CURDATE()'))
-                ->update(['abs_log' => $rq->input('tp')]);
+                ->update([
+                        'abs_log' => $rq->input('tp'),
+                        'DESC2' => $desc2
+                    ]);
 
             return redirect()->route('pres');
 

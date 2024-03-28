@@ -14,7 +14,8 @@ class Abs extends Model
         'tgl',
         'abs_awal',
         'abs_akhir',
-        'abs_log'
+        'abs_log',
+        'DESC2'
     ];
 
     public function pegaw()

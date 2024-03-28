@@ -61,7 +61,8 @@ class Pres extends Controller
             'tgl' => $tgl,
             'abs_awal' => $wk,
             'abs_akhir' => '00:00:00',
-            'abs_log' => 'A'
+            'abs_log' => 'A',
+            'DESC2' => 'Belum absen pulang'
             ];
 
         if ($itng == 0) {
@@ -76,7 +77,8 @@ class Pres extends Controller
                 ->where('tgl', DB::raw('CURDATE()'))
                 ->update([
                     'abs_akhir' => $wk,
-                    'abs_log' => 'S'
+                    'abs_log' => 'S',
+                    'DESC2' => 'Hadir'
                 ]);
 
             session()->flash('absak', 'Absen pulang berhasil disimpan!');
