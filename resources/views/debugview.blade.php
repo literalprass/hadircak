@@ -27,10 +27,18 @@
           <a class="btn btn-warning" href='{{ url('presensi') }}'>
             PRESENSI
           </a>
-          <form class="pew" method="GET" action="{{ route('akpergi') }} "  onsubmit="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
-            @csrf
-            Sedang login dengan atas nama {{$mas->nama}} <button class="btn btn-danger csbt1" type="submit">Aku pergi</button>
-          </form>
+          @if ($siu)
+          <a class="btn btn-warning" href='{{ url('/appr') }}'>
+            ACC IZIN
+          </a>
+          @endif
+          <a href="#" class="nostyle mamia fw-bold">
+            Selamat datang {{ $mas->nama }}
+          </a>
+          <a href="{{ url('akpergi') }}" class="btn btn-danger"  onclick="return confirm('Apakah anda yakin untuk Logout dan kembali ke halaman Login?')">
+            LOGOUT
+          </a>
+          
         </div>
     </nav>
 
