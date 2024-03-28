@@ -37,7 +37,6 @@ class Pres extends Controller
         
 
         // echo $mas;
-        
         return view('prsn',compact('plg'));
     }
     
@@ -63,7 +62,7 @@ class Pres extends Controller
             'abs_awal' => $wk,
             'abs_akhir' => '00:00:00',
             'abs_log' => 'A'
-            ];;
+            ];
 
         if ($itng == 0) {
 
