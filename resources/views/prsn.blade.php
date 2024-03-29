@@ -6,7 +6,7 @@
 
         <form action="{{url('/prs')}}" method="POST" class="mr-2">
             @csrf
-            <button type="submit"class="ckot bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-xl">
+            <button type="submit"class="ckot bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-xl">
                     Absen
             </button>
         </form>
@@ -54,7 +54,7 @@
                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $p->DESC2 }}
-                    </th>
+                    </th>ccccc
                     <th class="px-6 py-4">
                         {{ $p->id }}
                     </th>
@@ -70,9 +70,9 @@
                 </tr>
                 
                @endforeach
-               <tr class="text-xs text-blue-300 uppercase bg-gray-50 dark:bg-gray-700 dark:blue-gray-400">
-                <th scope="col" class="px-6 py-4 underline hover:text-blue-100"> 
-                    <a href="{{url('riwayat/izin')}}">Riwayat izin</a>
+               <tr class="bg-gray-50 dark:bg-gray-700 dark:blue-gray-400">
+                <th scope="col"> 
+                    <a href="{{url('riwayat/izin')}}" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-6 rounded-xl">Riwayat izin</a>
                 </th>
                 <th scope="col" class="px-6 py-4">
                     &nbsp;

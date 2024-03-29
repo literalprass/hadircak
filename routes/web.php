@@ -8,7 +8,7 @@ use App\Http\Controllers\Cretcon;
     use App\Http\Controllers\edusKon;
     use App\Http\Controllers\upusKon;
     use App\Http\Controllers\delKon;
-use App\Http\Controllers\Iz;
+use App\Http\Controllers\hsiz;
 // Login and Auth
 use App\Http\Controllers\konCol;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 // presensi
 use App\Http\Controllers\Pres;
 
+//perizinan
+use App\Http\Controllers\Iz;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +28,6 @@ use App\Http\Controllers\Pres;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 // get all data in homepage
 Route::get('/dash', [Liatbg::class, 'index'])->name('dash');
@@ -54,8 +55,9 @@ Route::patch('/home', [konCol::class, 'masuk'])->name('home');
         Route::get('/izin', [Iz::class, 'index'])->name('izfrm');
         Route::post('/izup', [Iz::class, 'upiz'])->name('upizin');
 
+//perizinan
+Route::get('/riwayat/izin', [hsiz::class, 'index'])->name('riwayatizin');
 
-        
 
 
 
