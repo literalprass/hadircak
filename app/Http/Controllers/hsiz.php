@@ -29,7 +29,10 @@ class hsiz extends Controller
 
     function apprIz($id_izin) {
 
-        $aprIzn = Izin::where('ID_IZIN',$id_izin)->get('approval');
+        $mas = session('usid');
+        $id = $mas->id;
+
+        $aprIzn = Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')->where('ID_IZIN',$id_izin)->get();
 
         // $aprIzn->approvl = 'Y';
         // $aprIzn->save();
