@@ -29,24 +29,19 @@ class hsiz extends Controller
 
     function apprIz($id_izin) {
 
-        $mas = session('usid');
-        $id = $mas->id;
+        $coltipe = Izin::where('id_izin',$id_izin)->value('tipe');
+        $coldesc = Izin::where('id_izin',$id_izin)->value('DESC2');
+        // dd($coltipe, $coldesc);
 
-        $aprIzn = Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')
+        Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')
                 ->where('ID_IZIN',$id_izin)
                 ->update([
                     'approval' => 'Y',
-                    'abspgw.abs_log' => `izin`.`tipe`,
-                    'abspgw.DESC2' => 'ya allah'
+                    'abspgw.abs_log' => $coltipe,
+                    'abspgw.DESC2' => $coldesc
                 ]);
 
-        // $aprIzn->approvl = 'Y';
-        // $aprIzn->save();
-        return redirect()->route('pres');
-
-        // echo $aprIzn;
-        // dd($aprIzn);
-
+        return redirect()->route('riwayatizin');
     }
 
 }
