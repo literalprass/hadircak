@@ -57,6 +57,8 @@ Route::patch('/home', [konCol::class, 'masuk'])->name('home');
 
 //perizinan
 Route::get('/riwayat/izin', [hsiz::class, 'index'])->name('riwayatizin');
+Route::patch('/appr/{id}', [hsiz::class, 'apprIz'])->name('priz');
+
 
 
 

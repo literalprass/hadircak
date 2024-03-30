@@ -33,7 +33,7 @@ class Pres extends Controller
         };
 
         $id = session('usid')->id;
-        $plg = Abs::where('id', $id)->orderBy('tgl','desc')->get();
+        $plg = Abs::where('id', $id)->orderBy('tgl','desc')->limit(5)->get();
         
 
         // echo $mas;

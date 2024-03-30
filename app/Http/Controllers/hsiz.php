@@ -19,12 +19,24 @@ class hsiz extends Controller
         if (!session('usid')) {
             abort(404);
         }
-        
         $mas = session('usid');
-        echo $this->tabel_izin;
-        
+        $id = $mas->id;
 
+        $dt_izn = $this->tabel_izin->where('id',$id);
 
-        // return view('riwayat.iznhs');
+        return view('riwayat.iznhs', compact('dt_izn'));
     }
+
+    function apprIz($id_izin) {
+
+        $aprIzn = Izin::where('ID_IZIN',$id_izin)->get('approval');
+
+        // $aprIzn->approvl = 'Y';
+        // $aprIzn->save();
+
+        echo $aprIzn;
+        dd($aprIzn);
+
+    }
+
 }
