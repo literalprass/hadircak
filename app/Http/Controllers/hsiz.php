@@ -32,13 +32,20 @@ class hsiz extends Controller
         $mas = session('usid');
         $id = $mas->id;
 
-        $aprIzn = Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')->where('ID_IZIN',$id_izin)->get();
+        $aprIzn = Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')
+                ->where('ID_IZIN',$id_izin)
+                ->update([
+                    'approval' => 'Y',
+                    'abspgw.abs_log' => `izin`.`tipe`,
+                    'abspgw.DESC2' => 'ya allah'
+                ]);
 
         // $aprIzn->approvl = 'Y';
         // $aprIzn->save();
+        return redirect()->route('pres');
 
-        echo $aprIzn;
-        dd($aprIzn);
+        // echo $aprIzn;
+        // dd($aprIzn);
 
     }
 
