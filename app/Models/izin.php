@@ -13,7 +13,8 @@ class Izin extends Model
         'tgl',
         'alasan',
         'id',
-        'DESC2'
+        'DESC2',
+        'approval'
     ];
     public function pegaw()
     {

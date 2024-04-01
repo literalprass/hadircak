@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Izin;
+use App\Models\Abs;
 use Illuminate\Http\Request;
 
 class hsiz extends Controller
@@ -31,15 +32,25 @@ class hsiz extends Controller
 
         $coltipe = Izin::where('id_izin',$id_izin)->value('tipe');
         $coldesc = Izin::where('id_izin',$id_izin)->value('DESC2');
-        // dd($coltipe, $coldesc);
+        // $colapr = Izin::where('id_izin',$id_izin)->value('approval');
+        // dd($coltipe, $coldesc,$colapr);
+
+        $acuy = [
+            'approval' => 'Y',
+            'abspgw.abs_log' => $coltipe,
+            'abspgw.DESC2' => $coldesc
+        ];
+        // dd($acuy);
 
         Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')
                 ->where('ID_IZIN',$id_izin)
+                // ->update($acuy);
                 ->update([
                     'approval' => 'Y',
                     'abspgw.abs_log' => $coltipe,
                     'abspgw.DESC2' => $coldesc
                 ]);
+
 
         return redirect()->route('riwayatizin');
     }
