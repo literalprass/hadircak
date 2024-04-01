@@ -32,14 +32,12 @@ class hsiz extends Controller
 
         $coltipe = Izin::where('id_izin',$id_izin)->value('tipe');
         $coldesc = Izin::where('id_izin',$id_izin)->value('DESC2');
-        // $colapr = Izin::where('id_izin',$id_izin)->value('approval');
-        // dd($coltipe, $coldesc,$colapr);
 
-        $acuy = [
-            'approval' => 'Y',
-            'abspgw.abs_log' => $coltipe,
-            'abspgw.DESC2' => $coldesc
-        ];
+        // $acuy = [
+        //     'approval' => 'Y',
+        //     'abspgw.abs_log' => $coltipe,
+        //     'abspgw.DESC2' => $coldesc
+        // ];
         // dd($acuy);
 
         Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')
