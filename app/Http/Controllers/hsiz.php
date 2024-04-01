@@ -22,7 +22,7 @@ class hsiz extends Controller
         $mas = session('usid');
         $id = $mas->id;
 
-        $dt_izn = $this->tabel_izin->where('id',$id);
+        $dt_izn = Izin::where('id',$id)->orderBy('tgl','desc')->get();
 
         return view('riwayat.iznhs', compact('dt_izn'));
     }
