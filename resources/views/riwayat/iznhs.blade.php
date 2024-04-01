@@ -6,18 +6,31 @@
 
 @foreach ($dt_izn as $i )
 
-{{ $i->id }} <br>
-{{ $i->DESC2 }} <br>
-{{ $i->alasan }} <br>
-{{ $i->approval }} <br>
+<div class="flex flex-row">
+{{ $i->id }} |
+{{ $i->DESC2 }} | 
+{{ $i->alasan }} |
+{{ $i->tgl }} |
+{{ $i->approval }}
+</div>
 
-<form action="{{ route('priz',['id'=>$i->ID_IZIN]) }}" method="POST">
-@csrf
-@method('PATCH')
+<div class="flex flex-row">
+    <form action="{{ route('priz',['id'=>$i->ID_IZIN]) }}" method="POST" class="mr-2">
+        @csrf
+        @method('PATCH')
+        
+            <button  type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-6 rounded-xl mb-8">Approve izin</button>
+        
+        </form>
+        <form action="{{ route('hapusizin',['id'=>$i->ID_IZIN]) }}" method="POST">
+            @csrf
+            @method('delete')
+            
+                <button  type="submit" class="bg-red-600 hover:bg-red-800 text-white font-bold py-1 px-6 rounded-xl mb-8" onclick="return confirm('Apakah anda yakin akan menghapus Izin berikut?')">Delete Izin</button>
+            
+        </form>
+</div>
 
-    <button  type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-6 rounded-xl mb-8">Approve izin</button>
-
-</form>
 
 @endforeach
 

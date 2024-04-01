@@ -33,24 +33,31 @@ class hsiz extends Controller
         $coltipe = Izin::where('id_izin',$id_izin)->value('tipe');
         $coldesc = Izin::where('id_izin',$id_izin)->value('DESC2');
 
-        // $acuy = [
-        //     'approval' => 'Y',
-        //     'abspgw.abs_log' => $coltipe,
-        //     'abspgw.DESC2' => $coldesc
-        // ];
-        // dd($acuy);
+        //Syarat approval : harus sudah ada tanggal absensi yang sama dengan inputan izin
 
         Izin::join('abspgw', 'izin.tgl', '=', 'abspgw.tgl')
                 ->where('ID_IZIN',$id_izin)
-                // ->update($acuy);
                 ->update([
                     'approval' => 'Y',
                     'abspgw.abs_log' => $coltipe,
                     'abspgw.DESC2' => $coldesc
                 ]);
 
+        return redirect()->route('riwayatizin');
+    }
+
+    function deliz($id_izin) {
+
+        $deletan = Izin::where('id_izin',$id_izin);
+
+        if (!session('usid')) {
+            abort(404);
+        } else {
+            $deletan->delete();
+        }
 
         return redirect()->route('riwayatizin');
+
     }
 
 }
