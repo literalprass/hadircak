@@ -18,7 +18,7 @@
     <form action="{{ route('priz',['id'=>$i->ID_IZIN]) }}" method="POST" class="mr-2">
         @csrf
         @method('PATCH')
-        
+
             <button  type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-6 rounded-xl mb-8">Approve izin</button>
         
         </form>

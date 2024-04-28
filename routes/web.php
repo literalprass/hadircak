@@ -1,6 +1,8 @@
 <?php
 
 // view
+
+use App\Http\Controllers\Addash;
 use App\Http\Controllers\Liatbg;
 use App\Http\Controllers\Cretcon;
 
@@ -59,6 +61,9 @@ Route::patch('/home', [konCol::class, 'masuk'])->name('home');
 Route::get('/riwayat/izin', [hsiz::class, 'index'])->name('riwayatizin');
 Route::patch('/appr/{id}', [hsiz::class, 'apprIz'])->name('priz');
 Route::delete('/delete_izin/{id}', [hsiz::class, 'deliz'])->name('hapusizin');
+
+//admin dashboard
+Route::get('/admin', [Addash::class, 'index'])->name('admliat');
 
 
 
